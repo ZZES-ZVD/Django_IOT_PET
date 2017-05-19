@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c1767f1-0353-4aac-bc7f-5eed001614fb" name="Default" comment="" />
+    <list default="true" id="7c1767f1-0353-4aac-bc7f-5eed001614fb" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Book.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Calendar.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Chat.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Clipboard.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Compas.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Gift-Box.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Infinity-Loop.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Mail.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Map.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Pensils.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Pocket.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Retina-Ready.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Toilet-Paper.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/png/Watches.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/book.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/calendar.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/chat.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/clipboard.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/clocks.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/compas.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/gift-box.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/loop.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/mail.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/map.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/paper-bag.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/pencils.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/retina.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/ribbon.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/icons/svg/toilet-paper.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/login/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/login/imac-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/login/imac.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/tile/ribbon-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/tile/ribbon.png" afterPath="" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
-              <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+              <caret line="65" column="36" lean-forward="false" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#4870#4876#0#HTML" expanded="true" />
@@ -743,7 +779,7 @@
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+          <caret line="65" column="36" lean-forward="false" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#4870#4876#0#HTML" expanded="true" />
