@@ -41,9 +41,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <!-- left nav  -->
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Info</a></li>
-            <li><a href="#">Data</a></li>
+              {% if request.session.username %}
+                <li><a href="/">Home</a></li>
+                <li><a href="/info">Info</a></li>
+                <li><a href="/data">Data</a></li>
+              {% else %}
+                <li><a href="/">Home</a></li>
+                <li><a href="/info">Info</a></li>
+              {% endif %}
           </ul>
           <!-- right nav -->
           <ul class="nav navbar-nav navbar-right">
