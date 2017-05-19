@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from mysite import views
-
+# from django.conf.urls.static import static
+# from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,4 +25,7 @@ urlpatterns = [
     url(r'^$',views.index),
     url(r'^login/$',views.login),
     url(r'^logout/$',views.logout),
+    url(r'^info/$',views.info),
+    url(r'^data/$',views.data),
 ]
+# +static(settings.STATIC_URL,document_root=settings.STATCFILES_DIRS)
