@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from mysite.models import User
 from django.views.decorators.csrf import csrf_exempt
 
@@ -45,3 +45,9 @@ def index(request):
 def logout(request):
     del request.session['username']
     return render(request,'index.html')
+
+def info(request):
+    return render(request, "info.html")
+
+def data(request):
+    return render(request, "data.html")
