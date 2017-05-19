@@ -1,10 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+ <div class="col-md-12">
+      <!-- video -->
+      <div class="span8 col-md-6">
+        <!--[if !IE]> -->
+          <video class="video-js" controls
+            preload="auto" width="200" height="100" poster="{% static "s4.jpg" %}" data-setup="{}">
+            <source src="{% static "video/cww.mp4" %}" type="video/mp4"/>
+          </video>
+        <!-- <![endif]-->
+
+        <!--[if IE]>
+          <video class="video-js" controls
+            preload="auto" width="620" height="256" poster="http://video-js.zencoder.com/oceans-clip.jpg" data-setup="{}">
+            <source src="video/cww.mp4" type="video/mp4"/
+          </video>
+        <![endif]-->
+      </div> <!-- /video -->
+
+      <div class="col-md-6">
+          <div class="tile col-md-6">
+            <img class="tile-image big-illustration" alt="" src="{% static "/info/stm32.png" %}">
+            <h3 class="tile-title">STM32F103 MCU</h3>
+            <p>MCU</p>
+
+          </div>
+          <div class="tile col-md-6">
+            <img class="tile-image big-illustration" alt="" src="{% static "/info/esp8266.png" %}">
+            <h3 class="tile-title">ESP8266</h3>
+            <p>WIFI MODULE</p>
+
+          </div>
+          <div class="tile col-md-6">
+            <img class="tile-image big-illustration" alt="" src="{% static "/info/sht20.png" %}">
+            <h3 class="tile-title">SHT20</h3>
+            <p>TEM AND HUM</p>
+
+          </div>
+          <div class="tile col-md-6">
+            <img class="tile-image big-illustration" alt="" src="{% static "/info/duoji.png" %}">
+            <h3 class="tile-title">Steering Gear</h3>
+            <p>OPEN THE DOOR</p>
+
+          </div>
+           <div class="tile col-md-6">
+            <img class="tile-image big-illustration" alt="" src="{% static "/info/renti.png" %}">
+            <h3 class="tile-title">HC-SR501</h3>
+            <p>PERCEPTION OF PET EXISTENCE</p>
+
+          </div>
+          <div class="tile col-md-6">
+            <img class="tile-image big-illustration" alt="" src="{% static "/info/tcrt.png" %}">
+            <h3 class="tile-title">TCRT5000</h3>
+            <p>ALSO PERCEPTION OF PET EXISTENCE</p>
+
+          </div>
+          <div class="tile col-md-6">
+            <img class="tile-image big-illustration" alt="" src="{% static "/info/fengshan.png" %}">
+            <h3 class="tile-title">Electric Fan</h3>
+            <p>CUT DOWN THE TEM</p>
+
+          </div>
+      </div>
+    </div>
+{% endblock %}
