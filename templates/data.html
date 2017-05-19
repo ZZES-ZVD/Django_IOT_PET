@@ -1,10 +1,181 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <style>
+      #wenshidu{
+        width: 600px;
+        height: 400px;
+      }
+      #image1,#image0{
+        width: 800px;
+        height: 400px;
+      }
+      .feng{
+        width: 150px;
+        height: 100px;
+      }
+    </style>
+    <script src="{% static 'js/echarts.min.js' %}"></script>
+    <script src="{% static 'js/macarons.js' %}"></script>
+
+{% if request.session.username %}
+    <!-- echarts -->
+    <div class="col-md-12 col-sm-12">
+      <div class="col-md-6 col-sm-12" id="wenshidu"></div>
+
+      <div class="col-md-3 col-sm-12" id="indoor">
+        <img src="{% static '1.png' %}" alt="" id="image1">
+        <img src="{% static '0.png' %}" alt="" id="image0">
+      </div>
+
+      <div class="col-md-2 col-md-offset-1 col-sm-12" id="fengshan">
+        <img class="feng" src="{% static 'f1.gif' %}" alt="风扇开" id="feng1">
+        <img class="feng" src="{% static 'f0.jpg' %}" alt="风扇关" id="feng0">
+      </div>
+
+    </div>
+    {% else %}
+        you can not view this page
+    {% endif %}
+
+
+    <script>
+      //fetch异步请求函数
+      function status(response){
+          if(response.status>=200 && response.status<300){
+              return Promise.resolve(response);
+          }
+          else{
+              return Promise.reject(new Error(response.statusText));
+          }
+      }
+      function json(response){
+          return response.json();
+      }
+
+      //请求数据函数
+      function getData(){
+        //请求风扇是否打开
+        fetch("http://119.29.201.31:3000/feng")
+          .then(status)
+          .then(json)
+          .then(function(data){
+            var div = document.getElementById('fengshan');
+            var feng1 = document.getElementById('feng1');
+            var feng0 = document.getElementById('feng0');
+            if (data[data.length-1] == 1) {
+              feng1.style.display = "block";
+              feng0.style.display = "none";
+            }else{
+              feng1.style.display = "none";
+              feng0.style.display = "block";
+            }
+          })
+
+         //请求宠物是否在屋内
+        fetch("http://119.29.201.31:3000/indoor")
+          .then(status)
+          .then(json)
+          .then(function(data){
+
+            var div = document.getElementById('indoor');
+            var image1 = document.getElementById('image1');
+            var image0 = document.getElementById('image0');
+
+              if(data[data.length-1] == 1){
+                 image0.style.display = "none";
+                 image1.style.display = "block";
+              }else{
+                 image1.style.display = "none";
+                 image0.style.display = "block";
+              }
+          })
+          .catch(function(err){
+              console.log("Fetch错误:"+err);
+          });
+
+              //请求时间
+        fetch("http://119.29.201.31:3000/time")
+          .then(status)
+          .then(json)
+          .then(function(data){
+              // 折线图湿度
+              myChart.setOption({
+                      xAxis:{
+                  data:data
+                }
+              });
+          })
+          .catch(function(err){
+              console.log("Fetch错误:"+err);
+          });
+
+        //请求温度数据
+        fetch("http://119.29.201.31:3000/tem")
+          .then(status)
+          .then(json)
+          .then(function(data){
+              //折线图温度
+              myChart.setOption({
+
+                     series: [{
+                         // 根据名字对应到相应的系列
+                         name: 'TEM',
+                         data: data
+                     }]
+              });
+          })
+          .catch(function(err){
+              console.log("Fetch错误:"+err);
+          });
+
+        //请求湿度数据
+      fetch("http://119.29.201.31:3000/hum")
+        .then(status)
+        .then(json)
+        .then(function(data){
+            // 折线图湿度
+            myChart.setOption({
+                   series: [{
+                       // 根据名字对应到相应的系列
+                       name: 'HUM',
+                       data: data
+                   }]
+            });
+        })
+        .catch(function(err){
+            console.log("Fetch错误:"+err);
+        });
+      }
+
+    //更新ECharts数据
+    setInterval('getData()',10);
+
+     var myChart = echarts.init(document.getElementById('wenshidu'),'macarons');
+
+     var option = {
+            title: {
+                text: 'TEM AND HUM'
+            },
+            tooltip: {},
+            legend: {
+                data:['TEM','HUM']
+            },
+            xAxis: {
+                data: ["1","2","3","4","5"]
+            },
+            yAxis: {},
+            series: [{
+                name: 'TEM',
+                type: 'line',
+                data: [5, 20, 36, 10, 10, 20]
+            },{
+                name: 'HUM',
+                type: 'line',
+                data: [15, 30, 46, 50, 60, 20]
+            }]
+        };
+      myChart.setOption(option);
+    </script>
+
+{% endblock %}
