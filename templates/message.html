@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    <style>
+        .delbtn{
+            position: absolute;
+            left:80%;
+        }
+        #messagelist{
+            position: relative;
+        }
+        #messagebox{
+            box-shadow: 10px 10px 5px #D9EDF7;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;;
+        }
+    </style>
+    <h3 id="tt">宠物喂食器交流平台</h3><hr>
+    {% if request.session.username %}
+    <div class="col-md-4 col-sm-12" id="messagebox">
+      <form action="http://127.0.0.1:8000/messagerev/" method="post">
+          <div class="form-group">
+            <label for="title">标题</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="textarea">内容</label>
+              <textarea name="textarea" class="form-control" id="textarea" cols="20" rows="5" required></textarea>
+          </div>
+          <input type="submit" value="发表" class="form-control btn btn-primary"><br><br>
+      </form>
+    </div>
+    <div class="col-md-8 col-sm-12" id="messagelist">
+    {% for message in message_list %}
+        <div class="panel panel-info">
+            <div class="panel-heading">{{message.title}}<a class="delbtn" href="/messagedel/{{ message.id }}">删除</a></div>
+            <div class="panel-body">
+            <p>{{message.textarea}}</p>
+        </div>
+        <table class="table" >
+            <hr>
+            <span>{{message.people}}</span>---
+            <span>{{message.time}}</span>
+        </table>
+      </div>
+    {% endfor %}
+    <br><br><br><br><br><br><br><br><br><br>
+    </div>
+    {% else %}
+        YOU CAN NOT VIEW THIS PAGE
+    {% endif %}
+{% endblock %}
