@@ -22,7 +22,7 @@ from mysite.admin import admin_site
 # from django.conf import settings
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    # url(r'^admin/', admin.site.urls),
     url(r'^zzesadmin/',admin_site.urls),
     url(r'^regist/$',views.regist),
     url(r'^$',views.index),
@@ -30,5 +30,8 @@ urlpatterns = [
     url(r'^logout/$',views.logout),
     url(r'^info/$',views.info),
     url(r'^data/$',views.data),
+    url(r'^messagerev/$',views.messagerev),
+    url(r'^messagedel/(?P<pk>[0-9]+)$',views.messagedel),
+    url(r'^message/$',views.message),
 ]
 # +static(settings.STATIC_URL,document_root=settings.STATCFILES_DIRS)
