@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse, Http404
-from mysite.models import User
+from mysite.models import User, Message
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -13,11 +13,8 @@ def regist(request):
         username = request.POST['username']
         password = request.POST['password']
         email = request.POST['email']
-
         k = User.objects.create(username=username,password=password,email=email)
-
         k.save()
-
         return HttpResponse('regist success!!!')
     else:
         return render(request, 'regist.html')
@@ -51,3 +48,28 @@ def info(request):
 
 def data(request):
     return render(request, "data.html")
+
+@csrf_exempt
+def messagerev(request):
+    if(request.method == 'POST'):
+        title = request.POST['title']
+        textarea = request.POST['textarea']
+        people = request.session['username']
+        msg = Message.objects.create(title=title, textarea=textarea, people=people)
+        msg.save()
+        return redirect('/message')
+    else:
+        return HttpResponse('error 发表失败！！！')
+    return redirect('/message')
+
+@csrf_exempt
+def message(request):
+    message_list = Message.objects.all().order_by('-pk')
+    return render(request,'message.html',{'message_list':message_list})
+
+@csrf_exempt
+def messagedel(request,pk):
+    messageInfo = Message.objects.get(pk=pk)
+    delete = messageInfo.delete()
+    print(type(delete), delete)
+    return redirect('/message')
