@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Iotdata, Message
+from .models import User, Iotdata, Message, Status
 from django.contrib.admin import AdminSite
 from django.utils.translation import ugettext_lazy
 
@@ -16,3 +16,4 @@ admin_site = MyAdminSite()
 admin_site.register(User)
 admin_site.register(Iotdata)
 admin_site.register(Message)
+admin_site.register(Status)
