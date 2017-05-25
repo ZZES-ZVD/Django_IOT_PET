@@ -23,15 +23,18 @@ from mysite.admin import admin_site
 
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
-    url(r'^zzesadmin/',admin_site.urls),
-    url(r'^regist/$',views.regist),
-    url(r'^$',views.index),
-    url(r'^login/$',views.login),
-    url(r'^logout/$',views.logout),
-    url(r'^info/$',views.info),
-    url(r'^data/$',views.data),
-    url(r'^messagerev/$',views.messagerev),
-    url(r'^messagedel/(?P<pk>[0-9]+)$',views.messagedel),
-    url(r'^message/$',views.message),
+    url(r'^zzesadmin/', admin_site.urls),
+    url(r'^regist/$', views.regist),
+    url(r'^$', views.index),
+    url(r'^login/$', views.login),
+    url(r'^logout/$', views.logout),
+    url(r'^info/$', views.info),
+    url(r'^data/$', views.data),
+    url(r'^messagerev/$', views.messagerev),
+    url(r'^messagedel/(?P<pk>[0-9]+)$', views.messagedel),
+    url(r'^message/$', views.message),
+    url(r'^open/$', views.statusopen),
+    url(r'^cmdopen/$', views.cmdopen),
+    url(r'^numsum/$', views.statusnum),
 ]
 # +static(settings.STATIC_URL,document_root=settings.STATCFILES_DIRS)
