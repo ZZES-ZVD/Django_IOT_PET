@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, Http404
-from mysite.models import User, Message
+from django.db.models import Sum
 from django.views.decorators.csrf import csrf_exempt
-
+from mysite.models import User, Message, Status
 
 # Create your views here.
 #render()方法是render_to_response的一个崭新的快捷方式，前者会自动使用RequestContext。
@@ -47,7 +47,9 @@ def info(request):
     return render(request, "info.html")
 
 def data(request):
-    return render(request, "data.html")
+    status_msg = Status.objects.aggregate(Sum('num'))
+    print(status_msg)
+    return render(request, "data.html", {'num': status_msg['num__sum']})
 
 @csrf_exempt
 def messagerev(request):
@@ -73,3 +75,35 @@ def messagedel(request,pk):
     delete = messageInfo.delete()
     print(type(delete), delete)
     return redirect('/message')
+
+@csrf_exempt
+def statusopen(request):
+    if(request.method =='GET'):
+        statuscmd = 1
+        ctrlopen = Status.objects.create(num=statuscmd)
+        ctrlopen.save()
+        return HttpResponse('ok')
+    else:
+        return HttpResponse('error')
+        return redirect('/data')
+
+@csrf_exempt
+def cmdopen(request):
+    if(request.method =='GET'):
+        statuscmd = 1
+        ctrlclose = Status.objects.create(num=statuscmd)
+        ctrlclose.save()
+        return HttpResponse('ok')
+    else:
+        return HttpResponse('error')
+    return HttpResponse('close')
+
+@csrf_exempt
+def statusnum(request):
+    if(request.method == 'GET'):
+
+        status_num = Status.objects.aggregate(Sum('num'))
+        print(status_num)
+        return HttpResponse(status_num['num__sum'])
+    else:
+        return HttpResponse('0')
