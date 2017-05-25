@@ -12,6 +12,9 @@ class Message(models.Model):
     people = models.CharField(max_length=50)
     time = models.DateTimeField(auto_now_add=True)
 
+class Status(models.Model):
+    num = models.IntegerField()
+    time = models.DateTimeField(auto_now_add=True)
 
 class Iotdata(models.Model):
     tem = models.IntegerField()
@@ -19,4 +22,4 @@ class Iotdata(models.Model):
     door = models.IntegerField()
     feng = models.IntegerField()
     indoor = models.IntegerField()
-    time = models.CharField(max_length=50)
+    time = models.DateTimeField(auto_now_add=True)
